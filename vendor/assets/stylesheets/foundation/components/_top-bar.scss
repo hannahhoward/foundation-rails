@@ -196,7 +196,7 @@ $topbar-arrows: true !default; //Set false to remove the triangle icon from the 
 
         // Adding the class "menu-icon" will add the 3-line icon people love and adore.
         &.menu-icon {
-          #{$opposite-direction}: $topbar-link-padding;
+          #{$topbar-menu-icon-position}: $topbar-link-padding;
           top: 50%;
           margin-top: -16px;
           padding-#{$default-float}: 40px;
@@ -215,7 +215,7 @@ $topbar-arrows: true !default; //Set false to remove the triangle icon from the 
             &::after {
               content:"";
               position: absolute;
-              #{$opposite-direction}: 0;
+              #{$topbar-menu-icon-position}: 0;
               display: block;
               width: 16px;
               top:0;
