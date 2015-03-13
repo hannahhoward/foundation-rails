@@ -75,6 +75,25 @@ $topbar-divider-border-top: solid 1px scale-color($topbar-bg-color, $lightness: 
 $topbar-sticky-class: ".sticky" !default;
 $topbar-arrows: true !default; //Set false to remove the triangle icon from the menu item
 
+@mixin hamburber {
+  content:"";
+  position: absolute;
+  #{$topbar-menu-icon-position}: 0;
+  display: block;
+  width: 16px;
+  top:0;
+  height: 0;
+  // Shh, don't tell, but box-shadows create the menu icon :)
+  @if $experimental {
+    -webkit-box-shadow: 0 10px 0 1px $topbar-menu-icon-color,
+                        0 16px 0 1px $topbar-menu-icon-color,
+                        0 22px 0 1px $topbar-menu-icon-color;
+  }
+  box-shadow:         0 10px 0 1px $topbar-menu-icon-color,
+                      0 16px 0 1px $topbar-menu-icon-color,
+                      0 22px 0 1px $topbar-menu-icon-color;
+}
+
 @include exports("top-bar") {
   // Used to provide media query values for javascript components.
   // This class is generated despite the value of $include-html-top-bar-classes
@@ -207,33 +226,23 @@ $topbar-arrows: true !default; //Set false to remove the triangle icon from the 
               text-indent: -58px;
             }
             @if $default-float == $topbar-menu-icon-position {
-              text-indent: -58px;
+              &::before {
+                @include hamburger
+              }
+              padding-left: 25px;
+            }
+            @if $opposite-direction == $topbar-menu-icon-position {
+              &::after {
+                @include hamburger
+              }
+              padding-right: 25px;
             }
             height: 34px;
             line-height: 33px;
             padding: 0;
-            padding-right: 25px;
+
             color: $topbar-menu-link-color;
             position: relative;
-
-            &::after {
-              content:"";
-              position: absolute;
-              #{$topbar-menu-icon-position}: 0;
-              display: block;
-              width: 16px;
-              top:0;
-              height: 0;
-              // Shh, don't tell, but box-shadows create the menu icon :)
-              @if $experimental {
-                -webkit-box-shadow: 0 10px 0 1px $topbar-menu-icon-color,
-                                    0 16px 0 1px $topbar-menu-icon-color,
-                                    0 22px 0 1px $topbar-menu-icon-color;
-              }
-              box-shadow:         0 10px 0 1px $topbar-menu-icon-color,
-                                  0 16px 0 1px $topbar-menu-icon-color,
-                                  0 22px 0 1px $topbar-menu-icon-color;
-            }
           }
         }
       }
