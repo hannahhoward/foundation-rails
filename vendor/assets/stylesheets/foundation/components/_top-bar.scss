@@ -205,6 +205,9 @@ $topbar-arrows: true !default; //Set false to remove the triangle icon from the 
             @if $text-direction == rtl {
               text-indent: -58px;
             }
+            @if $topbar-menu-icon-position == left {
+              text-indent: -58px;
+            }
             height: 34px;
             line-height: 33px;
             padding: 0;
