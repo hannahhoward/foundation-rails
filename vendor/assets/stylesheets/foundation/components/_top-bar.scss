@@ -59,6 +59,7 @@ $topbar-menu-icon-color: #fff !default;
 $topbar-menu-link-color-toggled: #888 !default;
 $topbar-menu-icon-color-toggled: #888 !default;
 $topbar-menu-icon-position: $opposite-direction !default; // Change to $default-float for a left menu icon
+$topbar-menu-icon-position-opposite: $default-float !default;
 
 // Transitions and breakpoint styles
 $topbar-transition-speed: 300ms !default;
@@ -199,13 +200,13 @@ $topbar-arrows: true !default; //Set false to remove the triangle icon from the 
           #{$topbar-menu-icon-position}: $topbar-link-padding;
           top: 50%;
           margin-top: -16px;
-          padding-#{$default-float}: 40px;
+          padding-#{$topbar-menu-icon-position-opposite}: 40px;
 
           a {
             @if $text-direction == rtl {
               text-indent: -58px;
             }
-            @if $topbar-menu-icon-position == left {
+            @if $default-float == $topbar-menu-icon-position {
               text-indent: -58px;
             }
             height: 34px;
