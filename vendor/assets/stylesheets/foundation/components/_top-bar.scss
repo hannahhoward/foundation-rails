@@ -58,6 +58,7 @@ $topbar-menu-link-color: #fff !default;
 $topbar-menu-icon-color: #fff !default;
 $topbar-menu-link-color-toggled: #888 !default;
 $topbar-menu-icon-color-toggled: #888 !default;
+$topbar-menu-icon-position: $opposite-direction !default; // Change to $default-float for a left menu icon
 
 // Transitions and breakpoint styles
 $topbar-transition-speed: 300ms !default;
@@ -178,7 +179,7 @@ $topbar-arrows: true !default; //Set false to remove the triangle icon from the 
       // Menu toggle button on small devices
       .toggle-topbar {
         position: absolute;
-        #{$opposite-direction}: 0;
+        #{$topbar-menu-icon-position}: 0;
         top: 0;
 
         a {
