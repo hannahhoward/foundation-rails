@@ -225,6 +225,12 @@ $topbar-arrows: true !default; //Set false to remove the triangle icon from the 
             @if $text-direction == rtl {
               text-indent: -58px;
             }
+            height: 34px;
+            line-height: 33px;
+            padding: 0;
+
+            color: $topbar-menu-link-color;
+            position: relative;
             @if $default-float == $topbar-menu-icon-position {
               &::before {
                 @include hamburger
@@ -237,12 +243,6 @@ $topbar-arrows: true !default; //Set false to remove the triangle icon from the 
               }
               padding-right: 25px;
             }
-            height: 34px;
-            line-height: 33px;
-            padding: 0;
-
-            color: $topbar-menu-link-color;
-            position: relative;
           }
         }
       }
